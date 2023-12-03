@@ -12,6 +12,14 @@ urls = {
     "advisoryById": "https://ics-ap-apis.p.rapidapi.com/advisory/id",
 }
 
+def putMappings(config, mappings):
+    xheaders = {
+        "Content-Type" : "application/json",
+    }
+    url = config.get('ES_HOST') + ':' + config.get('ES_PORT') + "/icsadvisory"
+    response = requests.put(url, headers=xheaders, json=mappings)
+    print(response)
+
 def getLatestAdvisories(n=3):
     url = urls["latest"]
     querystring = {"n":n}

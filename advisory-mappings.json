@@ -1,0 +1,31 @@
+{
+    "mappings": {
+      "properties": {
+        "icsad_ID": { "type": "integer" },
+        "hyperlink": { "type": "keyword" },
+        "Original_Release_Date": { "type": "date" },
+        "Last_Updated": { "type": "date" },
+        "Year": { "type": "integer" },
+        "ICS-CERT_Number": { "type": "keyword" },
+        "ICS-CERT_Advisory_Title": { "type": "text" },
+        "Vendor": { "type": "keyword" },
+        "Product": { "type": "text" },
+        "Products_Affected": { "type": "text" },
+        "CVE_Number": { "type": "keyword" },
+        "Cumulative_CVSS": { "type": "float" },
+        "CVSS_Severity": { "type": "keyword" },
+        "CWE_Number": { "type": "keyword" },
+        "Critical_Infrastructure_Sector": { "type": "keyword" },
+        "Product_Distribution": { "type": "keyword" },
+        "Company_Headquarters": { "type": "keyword" },
+        "Known Exploited Vulnerability": { "type": "keyword" },
+        "Known Exploited CVE": { "type": "keyword" },
+        "NIST_NVD_CVE_URL": { "type": "keyword" },
+        "Google_Search_Vendor_HQ_Country": { "type": "keyword" },
+        "Google_Search_Vendor_Product": { "type": "keyword" },
+        "CISA_ICS_Alert_Lower": { "type": "keyword" },
+        "CISA_CSAF_JSON_ICS_ADV_Links": { "type": "keyword" }
+      }
+    }
+  }
+  
