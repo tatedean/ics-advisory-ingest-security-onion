@@ -1,16 +1,19 @@
-import requests
-import os
-import requests
+import sys, requests, json
+from advisorymod import advisorymod
 
-url = "https://ics-ap-apis.p.rapidapi.com/advisory/latest"
+status, t = advisorymod.getLatestAdvisories(5)
+if(t.get('error')): sys.exit()
 
-querystring = {"n":"3"}
+latest = t.get('data')
 
-headers = {
-    "X-RapidAPI-Key": os.environ.get("ADVISORY_API_KEY"),
-    "X-RapidAPI-Host": "ics-ap-apis.p.rapidapi.com"
-}
+bulk = []
 
-response = requests.get(url, headers=headers, params=querystring)
+for adv in latest:
+    advId = adv.get('ICS-CERT_Number')
+    status, data = advisorymod.getAdvisoryById(advId)
+    print(status)
+    if(status != 200): continue
+    bulk.append(data.get('data'))
 
-print(response.json())
+with open('advisories/advisories.json', 'w') as f:
+    f.write(json.dumps(bulk))
