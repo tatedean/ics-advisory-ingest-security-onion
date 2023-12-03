@@ -7,9 +7,9 @@ from advisorymod import advisorymod
 config = {}
 mappings = {}
 with open('config.json', 'r') as f:
-    config = json.loads(f)
+    config = json.load(f)
 with open('advisory-mappings.json', 'r') as f:
-    mappings = json.loads(f)
+    mappings = json.load(f)
 
 advisorymod.putMappings(config, mappings)
 
